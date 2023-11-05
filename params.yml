@@ -1,3 +1,7 @@
 base:
     random_state: 42
     log_level: INFO
+
+data_load:
+  dataset_train: 'data/imdb/train.pkl'
+  dataset_test: 'data/imdb/test.pkl'
