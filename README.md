@@ -8,7 +8,7 @@ Create virtual environment named `dvc-venv` (you may use other name)
 
 ```bash
 python3 -m venv .venv
-echo "export PYTHONPATH=$PWD" >> dvc-venv/bin/activate
+echo "export PYTHONPATH=$PWD" >> .venv/bin/activate
 source .venv/bin/activate
 ```
 
