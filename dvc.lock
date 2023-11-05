@@ -5,8 +5,12 @@ stages:
     deps:
     - path: src/stages/data_load.py
       hash: md5
-      md5: 8f217f8685c9401156331ea8872dffef
-      size: 1405
+      md5: ef8db573b7b8903251ddfaeac2325f19
+      size: 1149
+    - path: src/utils/utils.py
+      hash: md5
+      md5: 57aa5064f1144533c6db002321c4bce9
+      size: 570
     params:
       params.yaml:
         base:
@@ -14,6 +18,7 @@ stages:
           log_level: INFO
         data_load:
           save_path: data/imdb/
+          subsample_size: 500
     outs:
     - path: data/imdb/test.pkl
       hash: md5
@@ -23,3 +28,31 @@ stages:
       hash: md5
       md5: f4d40e9fbebff4f00a4cc385be27972d
       size: 33486912
+  subsample:
+    cmd: python src/stages/subsample.py --config=params.yaml
+    deps:
+    - path: src/stages/subsample.py
+      hash: md5
+      md5: 8470ec13263f93017c613aacdadfa2e9
+      size: 1289
+    - path: src/utils/utils.py
+      hash: md5
+      md5: 57aa5064f1144533c6db002321c4bce9
+      size: 570
+    params:
+      params.yaml:
+        base:
+          random_state: 42
+          log_level: INFO
+        data_load:
+          save_path: data/imdb/
+          subsample_size: 500
+    outs:
+    - path: data/imdb/test_500.pkl
+      hash: md5
+      md5: 668c2392250a715aa8b73497089f09e0
+      size: 682127
+    - path: data/imdb/train_500.pkl
+      hash: md5
+      md5: 4dac63c51e46d51d5c34b8a51ff31d9d
+      size: 668608

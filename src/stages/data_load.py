@@ -6,16 +6,7 @@ import pandas as pd
 import os
 
 from src.utils.logs import get_logger
-from src.utils.utils import load_config
-
-
-def ensure_dir(file_path: Text) -> None:
-    # Extract the directory from the file path
-    directory = os.path.dirname(file_path)
-
-    # Check if the directory exists, and create it if it doesn't
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+from src.utils.utils import load_config, ensure_dir
 
 
 def data_load(config_path: Text) -> None:

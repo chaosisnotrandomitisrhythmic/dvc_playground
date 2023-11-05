@@ -4,9 +4,23 @@ stages:
     cmd: python src/stages/data_load.py --config=params.yaml
     deps:
     - src/stages/data_load.py
+    - src/utils/utils.py
     params:
     - base
     - data_load
     outs:
     - data/imdb/train.pkl
     - data/imdb/test.pkl
+  subsample:
+    cmd: python src/stages/subsample.py --config=params.yaml
+    deps:
+    - src/stages/subsample.py
+    - src/utils/utils.py
+    - data/imdb/train.pkl
+    - data/imdb/test.pkl
+    params:
+    - base
+    - data_load
+    outs:
+    - data/imdb/train_500.pkl
+    - data/imdb/test_500.pkl

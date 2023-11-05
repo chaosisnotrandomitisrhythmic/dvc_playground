@@ -4,4 +4,5 @@ base:
 
 data_load:
     save_path: 'data/imdb/'
+    subsample_size: 500
     
