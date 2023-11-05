@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/stages/data_load.py
       hash: md5
-      md5: ea7e31e4da5734d6268008b86410e4d6
-      size: 1399
+      md5: 8f217f8685c9401156331ea8872dffef
+      size: 1405
     params:
       params.yaml:
         base:

@@ -6,9 +6,10 @@ import pandas as pd
 import os
 
 from src.utils.logs import get_logger
+from src.utils.utils import load_config
 
 
-def ensure_dir(file_path):
+def ensure_dir(file_path: Text) -> None:
     # Extract the directory from the file path
     directory = os.path.dirname(file_path)
 
@@ -22,10 +23,7 @@ def data_load(config_path: Text) -> None:
     Args:
         config_path {Text}: path to config
     """
-
-    with open(config_path) as conf_file:
-        config = yaml.safe_load(conf_file)
-
+    config = load_config(config_path)
     logger = get_logger("DATA_LOAD", log_level=config["base"]["log_level"])
 
     logger.info("Get dataset")
