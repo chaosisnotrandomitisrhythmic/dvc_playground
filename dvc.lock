@@ -1,0 +1,25 @@
+schema: '2.0'
+stages:
+  data_load:
+    cmd: python src/stages/data_load.py --config=params.yaml
+    deps:
+    - path: src/stages/data_load.py
+      hash: md5
+      md5: ea7e31e4da5734d6268008b86410e4d6
+      size: 1399
+    params:
+      params.yaml:
+        base:
+          random_state: 42
+          log_level: INFO
+        data_load:
+          save_path: data/imdb/
+    outs:
+    - path: data/imdb/test.pkl
+      hash: md5
+      md5: d892f3247488dc47538f50db00a5e53f
+      size: 32704516
+    - path: data/imdb/train.pkl
+      hash: md5
+      md5: f4d40e9fbebff4f00a4cc385be27972d
+      size: 33486912
