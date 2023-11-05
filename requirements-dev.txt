@@ -1,0 +1,4 @@
+ -r requirements.txt
+dvc==3.28.0
+notebook
+jupyter_contrib_nbextensions
