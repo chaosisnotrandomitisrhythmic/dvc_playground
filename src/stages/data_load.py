@@ -3,8 +3,18 @@ from typing import Text
 import yaml
 from datasets import load_dataset
 import pandas as pd
+import os
 
 from src.utils.logs import get_logger
+
+
+def ensure_dir(file_path):
+    # Extract the directory from the file path
+    directory = os.path.dirname(file_path)
+
+    # Check if the directory exists, and create it if it doesn't
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
 
 def data_load(config_path: Text) -> None:
@@ -24,9 +34,13 @@ def data_load(config_path: Text) -> None:
     train_df = pd.DataFrame(dataset["train"])
     test_df = pd.DataFrame(dataset["test"])
 
-    logger.info("Save raw data")
-    train_df.to_pickle(config["data_load"]["dataset_train"])
-    test_df.to_pickle(config["data_load"]["testset_test"])
+    # Assuming `config` is your configuration dictionary
+    save_dir = config["data_load"]["save_path"]
+    ensure_dir(save_dir)
+    logger.info("Save raw training data")
+    train_df.to_pickle(f"{save_dir}/train.pkl")
+    logger.info("Save raw test data")
+    test_df.to_pickle(f"{save_dir}/test.pkl")
 
 
 if __name__ == "__main__":
