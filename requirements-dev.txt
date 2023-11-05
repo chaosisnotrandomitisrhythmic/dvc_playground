@@ -1,4 +1,5 @@
  -r requirements.txt
 dvc==3.28.0
 notebook
+ipykernel
 jupyter_contrib_nbextensions
