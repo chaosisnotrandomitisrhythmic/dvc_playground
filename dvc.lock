@@ -31,6 +31,14 @@ stages:
   subsample:
     cmd: python src/stages/subsample.py --config=params.yaml
     deps:
+    - path: data/imdb/test.pkl
+      hash: md5
+      md5: d892f3247488dc47538f50db00a5e53f
+      size: 32704516
+    - path: data/imdb/train.pkl
+      hash: md5
+      md5: f4d40e9fbebff4f00a4cc385be27972d
+      size: 33486912
     - path: src/stages/subsample.py
       hash: md5
       md5: 8470ec13263f93017c613aacdadfa2e9
