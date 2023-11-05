@@ -1,0 +1,3 @@
+base:
+    random_state: 42
+    log_level: INFO
